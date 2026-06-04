@@ -30,6 +30,8 @@ import type {
 } from "@excalidraw/element/types";
 
 import { actionToggleZenMode } from "../actions";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { actionInsertStar } from "../actions/actionInsertStar";
 
 import { alignActionsPredicate } from "../actions/actionAlign";
 import { trackEvent } from "../analytics";

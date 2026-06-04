@@ -16,17 +16,19 @@ import {
 } from "@excalidraw/element";
 import { pointFrom } from "@excalidraw/math";
 
+import type { LocalPoint } from "@excalidraw/math";
+
+import type {
+  ExcalidrawLineElement,
+  NonDeleted,
+} from "@excalidraw/element/types";
+
 import { t } from "../i18n";
 import { ToolButton } from "../components/ToolButton";
 import { StarIcon } from "../components/icons";
 
 import { register } from "./register";
 
-import type { LocalPoint } from "@excalidraw/math";
-import type {
-  ExcalidrawLineElement,
-  NonDeleted,
-} from "@excalidraw/element/types";
 import type { AppState } from "../types";
 
 const STAR_RADIUS = 60;
@@ -86,14 +88,16 @@ export const actionInsertStar = register({
     const points = getStarPoints(x, y);
     const groupId = randomId();
     const vertexOrder = [0, 2, 4, 1, 3, 0];
-    const starElements = vertexOrder.slice(0, -1).map((vertexIndex, index) =>
-      createStarLine(
-        points[vertexIndex],
-        points[vertexOrder[index + 1]],
-        groupId,
-        appState,
-      ),
-    );
+    const starElements = vertexOrder
+      .slice(0, -1)
+      .map((vertexIndex, index) =>
+        createStarLine(
+          points[vertexIndex],
+          points[vertexOrder[index + 1]],
+          groupId,
+          appState,
+        ),
+      );
     const nextElements = syncMovedIndices(
       [...elements, ...starElements],
       arrayToMap(starElements),

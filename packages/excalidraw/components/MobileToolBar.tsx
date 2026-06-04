@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { KEYS, capitalizeString } from "@excalidraw/common";
 
 import { trackEvent } from "../analytics";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { actionInsertStar } from "../actions/actionInsertStar";
 
 import { t } from "../i18n";
 
