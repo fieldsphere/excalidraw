@@ -145,6 +145,7 @@ export type ActionName =
   | "wrapSelectionInFrame"
   | "toggleLassoTool"
   | "toggleShapeSwitch"
+  | "insertStar"
   | "togglePolygon";
 
 export type PanelComponentProps = {

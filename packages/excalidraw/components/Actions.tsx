@@ -1043,11 +1043,13 @@ export const ShapesSwitcher = ({
   setAppState,
   app,
   UIOptions,
+  renderAction,
 }: {
   activeTool: UIAppState["activeTool"];
   setAppState: React.Component<any, AppState>["setState"];
   app: AppClassProperties;
   UIOptions: AppProps["UIOptions"];
+  renderAction: ActionManager["renderAction"];
 }) => {
   const [isExtraToolsMenuOpen, setIsExtraToolsMenuOpen] = useState(false);
   const stylesPanelMode = useStylesPanelMode();
@@ -1180,6 +1182,7 @@ export const ShapesSwitcher = ({
           );
         },
       )}
+      {renderAction("insertStar")}
       <div className="App-toolbar__divider" />
 
       <DropdownMenu open={isExtraToolsMenuOpen}>

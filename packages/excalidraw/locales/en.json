@@ -329,6 +329,7 @@
     "embeddable": "Web Embed",
     "laser": "Laser pointer",
     "hand": "Hand (panning tool)",
+    "star": "Star",
     "extraTools": "More tools",
     "mermaidToExcalidraw": "Mermaid to Excalidraw",
     "convertElementType": "Toggle shape type"
