@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 
-import { KEYS, capitalizeString } from "@excalidraw/common";
+import { KEYS, capitalizeString, getFeatureFlag } from "@excalidraw/common";
 
 import { trackEvent } from "../analytics";
 
@@ -328,7 +328,7 @@ export const MobileToolBar = ({
         }
       />
 
-      {renderAction("insertStar")}
+      {getFeatureFlag("INSERT_STAR_BUTTON") && renderAction("insertStar")}
 
       {/* Text Tool */}
       {showTextToolOutside && (

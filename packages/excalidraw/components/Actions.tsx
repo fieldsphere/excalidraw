@@ -6,6 +6,7 @@ import {
   CLASSES,
   KEYS,
   capitalizeString,
+  getFeatureFlag,
   isTransparent,
 } from "@excalidraw/common";
 
@@ -1182,7 +1183,7 @@ export const ShapesSwitcher = ({
           );
         },
       )}
-      {renderAction("insertStar")}
+      {getFeatureFlag("INSERT_STAR_BUTTON") && renderAction("insertStar")}
       <div className="App-toolbar__divider" />
 
       <DropdownMenu open={isExtraToolsMenuOpen}>

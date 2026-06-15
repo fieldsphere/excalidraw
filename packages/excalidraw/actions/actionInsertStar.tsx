@@ -2,6 +2,7 @@ import React from "react";
 
 import {
   arrayToMap,
+  getFeatureFlag,
   randomId,
   viewportCoordsToSceneCoords,
 } from "@excalidraw/common";
@@ -75,11 +76,16 @@ export const actionInsertStar = register({
   label: "toolBar.star",
   icon: StarIcon,
   trackEvent: { category: "toolbar" },
+  predicate: () => getFeatureFlag("INSERT_STAR_BUTTON"),
   perform: (elements, appState) => {
+    if (!getFeatureFlag("INSERT_STAR_BUTTON")) {
+      return false;
+    }
+
     const { x, y } = viewportCoordsToSceneCoords(
       {
         clientX: appState.width / 2 + appState.offsetLeft,
-        clientY: appState.height / 2 + appState.offsetTop,
+        clientY: appState.height / 2,
       },
       appState,
     );
