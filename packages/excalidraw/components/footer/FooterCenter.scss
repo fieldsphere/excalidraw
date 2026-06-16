@@ -3,8 +3,17 @@
 
   display: flex;
   width: 100%;
+  align-items: center;
+  gap: 0.75rem;
   justify-content: flex-start;
   margin-inline-end: 0.6rem;
+
+  &__element-count {
+    color: var(--color-muted);
+    font-family: var(--ui-font);
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
 
   & > * {
     pointer-events: var(--ui-pointerEvents);
