@@ -2,12 +2,21 @@ import clsx from "clsx";
 
 import { useTunnels } from "../../context/tunnels";
 import { useUIAppState } from "../../context/ui-appState";
+import { t } from "../../i18n";
+import { useExcalidrawElements } from "../App";
 
 import "./FooterCenter.scss";
 
 const FooterCenter = ({ children }: { children?: React.ReactNode }) => {
   const { FooterCenterTunnel } = useTunnels();
   const appState = useUIAppState();
+  const elements = useExcalidrawElements();
+  const elementCount = elements.length;
+  const elementCountLabel = t(
+    elementCount === 1 ? "footer.elementCount_one" : "footer.elementCount",
+    { count: elementCount },
+  );
+
   return (
     <FooterCenterTunnel.In>
       <div
@@ -16,6 +25,12 @@ const FooterCenter = ({ children }: { children?: React.ReactNode }) => {
             appState.zenModeEnabled,
         })}
       >
+        <span
+          className="footer-center__element-count"
+          aria-label={elementCountLabel}
+        >
+          {elementCountLabel}
+        </span>
         {children}
       </div>
     </FooterCenterTunnel.In>
