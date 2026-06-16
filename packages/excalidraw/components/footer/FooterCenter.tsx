@@ -12,6 +12,10 @@ const FooterCenter = ({ children }: { children?: React.ReactNode }) => {
   const appState = useUIAppState();
   const elements = useExcalidrawElements();
   const elementCount = elements.length;
+  const elementCountLabel = t(
+    elementCount === 1 ? "footer.elementCount_one" : "footer.elementCount",
+    { count: elementCount },
+  );
 
   return (
     <FooterCenterTunnel.In>
@@ -23,9 +27,9 @@ const FooterCenter = ({ children }: { children?: React.ReactNode }) => {
       >
         <span
           className="footer-center__element-count"
-          aria-label={t("footer.elementCount", { count: elementCount })}
+          aria-label={elementCountLabel}
         >
-          {t("footer.elementCount", { count: elementCount })}
+          {elementCountLabel}
         </span>
         {children}
       </div>
