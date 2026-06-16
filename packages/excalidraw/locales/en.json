@@ -529,7 +529,8 @@
     "link": "Blog post on end-to-end encryption in Excalidraw"
   },
   "footer": {
-    "elementCount": "{{count}} elements"
+    "elementCount": "{{count}} elements",
+    "elementCount_one": "{{count}} element"
   },
   "stats": {
     "angle": "Angle",
