@@ -6,6 +6,7 @@ import {
   CLASSES,
   KEYS,
   capitalizeString,
+  getFeatureFlag,
   isTransparent,
 } from "@excalidraw/common";
 
@@ -30,6 +31,8 @@ import type {
 } from "@excalidraw/element/types";
 
 import { actionToggleZenMode } from "../actions";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { actionInsertStar } from "../actions/actionInsertStar";
 
 import { alignActionsPredicate } from "../actions/actionAlign";
 import { trackEvent } from "../analytics";
@@ -1043,11 +1046,13 @@ export const ShapesSwitcher = ({
   setAppState,
   app,
   UIOptions,
+  renderAction,
 }: {
   activeTool: UIAppState["activeTool"];
   setAppState: React.Component<any, AppState>["setState"];
   app: AppClassProperties;
   UIOptions: AppProps["UIOptions"];
+  renderAction: ActionManager["renderAction"];
 }) => {
   const [isExtraToolsMenuOpen, setIsExtraToolsMenuOpen] = useState(false);
   const stylesPanelMode = useStylesPanelMode();
@@ -1180,6 +1185,7 @@ export const ShapesSwitcher = ({
           );
         },
       )}
+      {getFeatureFlag("INSERT_STAR_BUTTON") && renderAction("insertStar")}
       <div className="App-toolbar__divider" />
 
       <DropdownMenu open={isExtraToolsMenuOpen}>
