@@ -91,6 +91,12 @@ describe("<Excalidraw/>", () => {
       <div
         class="footer-center zen-mode-transition"
       >
+        <span
+          aria-label="0 elements"
+          class="footer-center__element-count"
+        >
+          0 elements
+        </span>
         <div>
           This is a custom footer
         </div>
