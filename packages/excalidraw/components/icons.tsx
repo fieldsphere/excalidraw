@@ -375,6 +375,11 @@ export const LineIcon = createIcon(
   modifiedTablerIconProps,
 );
 
+export const StarIcon = createIcon(
+  <path d="M12 3l2.645 5.36l5.916 .86l-4.28 4.172l1.01 5.892l-5.291 -2.782l-5.291 2.782l1.01 -5.892l-4.28 -4.172l5.916 -.86z" />,
+  tablerIconProps,
+);
+
 export const PenModeIcon = createIcon(
   <g strokeWidth="1.25">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
