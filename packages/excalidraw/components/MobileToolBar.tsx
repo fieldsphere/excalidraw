@@ -40,6 +40,7 @@ import "./ToolIcon.scss";
 import "./MobileToolBar.scss";
 
 import type { AppClassProperties, ToolType, UIAppState } from "../types";
+import type { ActionManager } from "../actions/manager";
 
 const SHAPE_TOOLS = [
   {
@@ -84,12 +85,14 @@ const LINEAR_ELEMENT_TOOLS = [
 type MobileToolBarProps = {
   app: AppClassProperties;
   onHandToolToggle: () => void;
+  renderAction: ActionManager["renderAction"];
   setAppState: React.Component<any, UIAppState>["setState"];
 };
 
 export const MobileToolBar = ({
   app,
   onHandToolToggle,
+  renderAction,
   setAppState,
 }: MobileToolBarProps) => {
   const activeTool = app.state.activeTool;
@@ -324,6 +327,8 @@ export const MobileToolBar = ({
           ) || LINEAR_ELEMENT_TOOLS[0]
         }
       />
+
+      {renderAction("insertStar")}
 
       {/* Text Tool */}
       {showTextToolOutside && (
