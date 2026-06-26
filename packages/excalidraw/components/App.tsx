@@ -326,6 +326,7 @@ import {
   actionToggleMidpointSnapping,
   actionToggleCropEditor,
 } from "../actions";
+import "../actions/actionInsertStar";
 import { actionWrapTextInContainer } from "../actions/actionBoundText";
 import { actionToggleHandTool, zoomToFit } from "../actions/actionCanvas";
 import { actionPaste } from "../actions/actionClipboard";
