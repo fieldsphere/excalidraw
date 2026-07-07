@@ -55,7 +55,9 @@ export const getRandomColor = (
       ? colors.filter((color) => color !== currentColor)
       : colors;
 
-  return candidates[Math.floor(Math.random() * candidates.length)];
+  const pool = candidates.length > 0 ? candidates : colors;
+
+  return pool[Math.floor(Math.random() * pool.length)] ?? currentColor ?? "";
 };
 
 export const isCustomColor = ({
