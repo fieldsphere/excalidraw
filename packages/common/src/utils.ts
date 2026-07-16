@@ -1299,7 +1299,10 @@ export const getFeatureFlag = <F extends keyof FEATURE_FLAGS>(
       const serializedFlags = localStorage.getItem(FEATURE_FLAGS_STORAGE_KEY);
       if (serializedFlags) {
         const flags = JSON.parse(serializedFlags);
-        featureFlags = flags ?? DEFAULT_FEATURE_FLAGS;
+        featureFlags = {
+          ...DEFAULT_FEATURE_FLAGS,
+          ...(flags ?? {}),
+        };
       }
     } catch {}
   }

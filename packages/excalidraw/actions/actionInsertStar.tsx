@@ -87,7 +87,7 @@ export const actionInsertStar = register({
     const { x, y } = viewportCoordsToSceneCoords(
       {
         clientX: appState.width / 2 + appState.offsetLeft,
-        clientY: appState.height / 2,
+        clientY: appState.height / 2 + appState.offsetTop,
       },
       appState,
     );
