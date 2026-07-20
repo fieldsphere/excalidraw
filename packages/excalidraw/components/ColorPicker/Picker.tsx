@@ -208,7 +208,15 @@ export const Picker = React.forwardRef(
             type="button"
             className="color-picker__random-button"
             onClick={() => {
-              onChange(getRandomPaletteColor(palette, color));
+              const newColor = getRandomPaletteColor(palette, color);
+              onChange(newColor);
+              const newColorObj = getColorNameAndShadeFromColor({
+                color: newColor,
+                palette,
+              });
+              setActiveColorPickerSection(
+                newColorObj?.shade != null ? "shades" : "baseColors",
+              );
             }}
             data-testid="color-picker-random"
             title={t("colorPicker.randomColor")}
