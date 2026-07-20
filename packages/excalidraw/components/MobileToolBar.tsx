@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 
-import { KEYS, capitalizeString } from "@excalidraw/common";
+import { KEYS, capitalizeString, getFeatureFlag } from "@excalidraw/common";
 
 import { trackEvent } from "../analytics";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { actionInsertStar } from "../actions/actionInsertStar";
 
 import { t } from "../i18n";
 
@@ -40,6 +42,7 @@ import "./ToolIcon.scss";
 import "./MobileToolBar.scss";
 
 import type { AppClassProperties, ToolType, UIAppState } from "../types";
+import type { ActionManager } from "../actions/manager";
 
 const SHAPE_TOOLS = [
   {
@@ -84,12 +87,14 @@ const LINEAR_ELEMENT_TOOLS = [
 type MobileToolBarProps = {
   app: AppClassProperties;
   onHandToolToggle: () => void;
+  renderAction: ActionManager["renderAction"];
   setAppState: React.Component<any, UIAppState>["setState"];
 };
 
 export const MobileToolBar = ({
   app,
   onHandToolToggle,
+  renderAction,
   setAppState,
 }: MobileToolBarProps) => {
   const activeTool = app.state.activeTool;
@@ -324,6 +329,8 @@ export const MobileToolBar = ({
           ) || LINEAR_ELEMENT_TOOLS[0]
         }
       />
+
+      {getFeatureFlag("INSERT_STAR_BUTTON") && renderAction("insertStar")}
 
       {/* Text Tool */}
       {showTextToolOutside && (

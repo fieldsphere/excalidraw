@@ -91,4 +91,8 @@ if (flagsIntegration) {
     "COMPLEX_BINDINGS",
     getFeatureFlag("COMPLEX_BINDINGS"),
   );
+  flagsIntegration.addFeatureFlag(
+    "INSERT_STAR_BUTTON",
+    getFeatureFlag("INSERT_STAR_BUTTON"),
+  );
 }
