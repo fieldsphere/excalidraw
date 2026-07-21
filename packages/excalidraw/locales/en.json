@@ -599,7 +599,8 @@
     "shades": "Shades",
     "hexCode": "Hex code",
     "noShades": "No shades available for this color",
-    "randomColor": "Random color"
+    "randomColor": "Random color",
+    "blue": "Blue"
   },
   "overwriteConfirm": {
     "action": {

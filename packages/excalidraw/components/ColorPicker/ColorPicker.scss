@@ -262,6 +262,12 @@
     outline: none;
   }
 
+  .color-picker__action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   .color-picker__random-button {
     display: flex;
     align-items: center;

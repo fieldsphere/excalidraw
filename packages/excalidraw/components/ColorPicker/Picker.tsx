@@ -204,17 +204,30 @@ export const Picker = React.forwardRef(
             />
           </div>
 
-          <button
-            type="button"
-            className="color-picker__random-button"
-            onClick={() => {
-              onChange(getRandomPaletteColor(palette, color));
-            }}
-            data-testid="color-picker-random"
-            title={t("colorPicker.randomColor")}
-          >
-            {t("colorPicker.randomColor")}
-          </button>
+          <div className="color-picker__action-buttons">
+            <button
+              type="button"
+              className="color-picker__random-button"
+              onClick={() => {
+                onChange(getRandomPaletteColor(palette, color));
+              }}
+              data-testid="color-picker-random"
+              title={t("colorPicker.randomColor")}
+            >
+              {t("colorPicker.randomColor")}
+            </button>
+            <button
+              type="button"
+              className="color-picker__random-button"
+              onClick={() => {
+                onChange(getRandomPaletteColor(palette, color));
+              }}
+              data-testid="color-picker-blue"
+              title={t("colorPicker.blue")}
+            >
+              {t("colorPicker.blue")}
+            </button>
+          </div>
 
           {children}
         </div>
