@@ -100,3 +100,29 @@ export type ColorPickerType =
   | "canvasBackground"
   | "elementBackground"
   | "elementStroke";
+
+/**
+ * Returns a random color from the given palette.
+ * Excludes "transparent" so the result is always a visible color.
+ * Prefers a different color than `currentColor` when alternatives exist.
+ */
+export const getRandomPaletteColor = (
+  palette: ColorPaletteCustom,
+  currentColor?: string | null,
+): string => {
+  const colors = Object.values(palette)
+    .flat()
+    .filter((color): color is string => !!color && color !== "transparent");
+
+  if (colors.length === 0) {
+    return currentColor || "#000000";
+  }
+
+  const alternatives =
+    currentColor != null
+      ? colors.filter((color) => color !== currentColor)
+      : colors;
+  const pool = alternatives.length > 0 ? alternatives : colors;
+
+  return pool[Math.floor(Math.random() * pool.length)];
+};

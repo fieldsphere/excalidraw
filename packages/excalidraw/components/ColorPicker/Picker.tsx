@@ -23,6 +23,7 @@ import {
   activeColorPickerSectionAtom,
   getColorNameAndShadeFromColor,
   getMostUsedCustomColors,
+  getRandomPaletteColor,
   isCustomColor,
 } from "./colorPickerUtils";
 import { colorPickerKeyNavHandler } from "./keyboardNavHandlers";
@@ -202,6 +203,43 @@ export const Picker = React.forwardRef(
               showHotKey={showHotKey}
             />
           </div>
+
+          <div className="color-picker__action-buttons">
+            <button
+              type="button"
+              className="color-picker__random-button"
+              onClick={() => {
+                onChange(getRandomPaletteColor(palette, color));
+              }}
+              data-testid="color-picker-random"
+              title={t("colorPicker.randomColor")}
+            >
+              {t("colorPicker.randomColor")}
+            </button>
+            <button
+              type="button"
+              className="color-picker__random-button"
+              onClick={() => {
+                onChange(getRandomPaletteColor(palette, color));
+              }}
+              data-testid="color-picker-blue"
+              title={t("colorPicker.blue")}
+            >
+              {t("colorPicker.blue")}
+            </button>
+            <button
+              type="button"
+              className="color-picker__random-button"
+              onClick={() => {
+                onChange(getRandomPaletteColor(palette, color));
+              }}
+              data-testid="color-picker-red"
+              title={t("colorPicker.red")}
+            >
+              {t("colorPicker.red")}
+            </button>
+          </div>
+
           {children}
         </div>
       </div>
