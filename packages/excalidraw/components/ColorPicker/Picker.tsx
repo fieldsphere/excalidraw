@@ -227,6 +227,17 @@ export const Picker = React.forwardRef(
             >
               {t("colorPicker.blue")}
             </button>
+            <button
+              type="button"
+              className="color-picker__random-button"
+              onClick={() => {
+                onChange(getRandomPaletteColor(palette, color));
+              }}
+              data-testid="color-picker-red"
+              title={t("colorPicker.red")}
+            >
+              {t("colorPicker.red")}
+            </button>
           </div>
 
           {children}

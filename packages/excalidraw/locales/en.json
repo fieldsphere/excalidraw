@@ -600,7 +600,8 @@
     "hexCode": "Hex code",
     "noShades": "No shades available for this color",
     "randomColor": "Random color",
-    "blue": "Blue"
+    "blue": "Blue",
+    "red": "Red"
   },
   "overwriteConfirm": {
     "action": {
