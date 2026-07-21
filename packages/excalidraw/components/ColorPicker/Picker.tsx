@@ -205,6 +205,7 @@ export const Picker = React.forwardRef(
             />
           </div>
 
+          {/* Randomize stroke/background from the active palette */}
           <button
             type="button"
             className="color-picker__random-color"
