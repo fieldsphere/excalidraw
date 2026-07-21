@@ -109,6 +109,7 @@ export const getRandomColor = (
   palette: ColorPaletteCustom,
   currentColor: string | null,
 ): string => {
+  // Flatten palette shades/singletons; skip transparent so fills stay visible
   const colors = Object.values(palette)
     .flat()
     .filter((c): c is string => typeof c === "string" && c !== "transparent");
