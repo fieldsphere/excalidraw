@@ -14,6 +14,7 @@ import type { ColorPaletteCustom } from "@excalidraw/common";
 
 import { useAtom } from "../../editor-jotai";
 import { t } from "../../i18n";
+import { diceIcon } from "../icons";
 
 import { CustomColorList } from "./CustomColorList";
 import PickerColorList from "./PickerColorList";
@@ -23,6 +24,7 @@ import {
   activeColorPickerSectionAtom,
   getColorNameAndShadeFromColor,
   getMostUsedCustomColors,
+  getRandomColor,
   isCustomColor,
 } from "./colorPickerUtils";
 import { colorPickerKeyNavHandler } from "./keyboardNavHandlers";
@@ -202,6 +204,19 @@ export const Picker = React.forwardRef(
               showHotKey={showHotKey}
             />
           </div>
+
+          <button
+            type="button"
+            className="color-picker__random-color"
+            data-testid="color-picker-random"
+            onClick={() => {
+              onChange(getRandomColor(palette, color));
+            }}
+          >
+            {diceIcon}
+            <span>{t("colorPicker.randomColor")}</span>
+          </button>
+
           {children}
         </div>
       </div>
