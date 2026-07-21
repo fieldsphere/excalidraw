@@ -262,6 +262,38 @@
     outline: none;
   }
 
+  .color-picker__random-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--default-border-color);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--island-bg-color);
+    color: var(--text-primary-color);
+    font-family: inherit;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    svg {
+      width: 1.125rem;
+      height: 1.125rem;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background-color: var(--button-hover-bg, var(--color-surface-high));
+      border-color: var(--color-primary-darkest);
+    }
+
+    &:active {
+      background-color: var(--color-surface-primary-container);
+    }
+  }
+
   .color-picker-content--default {
     padding: 0.5rem;
     display: grid;
