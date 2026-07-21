@@ -220,7 +220,14 @@ export const Picker = React.forwardRef(
               type="button"
               className="color-picker__random-button"
               onClick={() => {
-                onChange(getRandomPaletteColor(palette, color));
+                const blueShades = palette.blue;
+                if (blueShades) {
+                  onChange(
+                    Array.isArray(blueShades)
+                      ? blueShades[activeShade]
+                      : blueShades,
+                  );
+                }
               }}
               data-testid="color-picker-blue"
               title={t("colorPicker.blue")}
